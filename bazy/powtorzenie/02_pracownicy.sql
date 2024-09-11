@@ -9,7 +9,7 @@ CREATE TABLE Dzialy(
 );
 
 -- Utwórz tabelę Pracownicy z polami:
--- ID całkowite, klucz podstawowy
+-- ID tekstowe, klucz podstawowy
 -- imie tekst, nie może być puste
 -- nazwisko tekst, nie może być puste
 -- dzial całkowite, jest to również pole klucza obcego, odwołujące się do pola kod w tabeli Działy
@@ -96,17 +96,33 @@ WHERE budzet > (SELECT AVG(budzet) FROM dzialy);
  
 
 -- 14. Wyświetl nazwy działów z więcej niż dwoma pracownikami 
-SELECT nazwa FROM dzialy 
-INNER JOIN
+SELECT nazwa, count(*)
+FROM dzialy
+    INNER JOIN pracownicy ON pracownicy.dzial=dzialy.kod
+GROUP BY dzialy.kod
+HAVING count(*)>2;
 -- 15. Wyświetl imiona i nazwiska pracowników, pracujących w działach (dziale) z najmniejszym budżetem.
+SELECT imie, nazwisko FROM pracownicy
+INNER JOIN dzialy ON pracownicy.dzial=dzialy.kod
+WHERE budzet = (SELECT min(budzet) FROM dzialy);
 
 -- 16. Dodaj nowy dział  "Quality Assurance" z budżetem $40,000 i kodem 10. 
 
--- 17. Dodaj pracownika "Mary Moore", pracującą w dziale o kodzie 10, z ID 847-21-9811.
+INSERT INTO dzialy (nazwa, budzet, kod)
+VALUES ("Quality Assurance", 40000, 10);
+
+-- 17. Dodaj pracownika "Mary Moore", pracującą w dziale o kodzie 10, z ID 847-21-9811
+INSERT INTO Pracownicy 
+VALUES (87, 'Mary', 'Moore', 10);
 
 -- 18. Zmniejsz budżet wszystkich działów o 10%.
+UPDATE dzialy
+SET budzet=budzet*0.9;
 
 -- 19. przenieś pracowników z działu Research  do działu IT  .
+UPDATE pracownicy
+SET dzial=(SELECT dzial FROM dzialy WHERE nazwa='IT')
+WHERE dzial=(SELECT dzial FROM dzialy WHERE nazwa='Research');
 
 -- 20. Usuń wszystkich pracowników pracujących w dziale   IT.
 
