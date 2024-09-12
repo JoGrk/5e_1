@@ -125,7 +125,10 @@ SET dzial=(SELECT dzial FROM dzialy WHERE nazwa='IT')
 WHERE dzial=(SELECT dzial FROM dzialy WHERE nazwa='Research');
 
 -- 20. Usuń wszystkich pracowników pracujących w dziale   IT.
-
+DELETE FROM pracownicy
+WHERE dzial=(SELECT kod FROM dzialy WHERE nazwa = 'IT');
 -- 21. Usuń wszystkich pracowników, którzy pracują w działach z budżetem większym bądź równym $60,000 (60 tysięcy)
-
+DELETE FROM pracownicy
+    WHERE dzial IN (SELECT kod FROM Dzialy WHERE budzet >= 60000);
 -- 22. Usuń wszystkich pracowników
+TRUNCATE pracownicy;
