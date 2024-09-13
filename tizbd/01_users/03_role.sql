@@ -35,36 +35,84 @@ WITH MAX_UPDATES_PER_HOUR 100;
 ALTER USER read1
 ACCOUNT UNLOCK;
 
---3 Określ uprawnienia:
--- Nadaj wszystkie prawa dla użytkownika dev dla wszystkich tabel w bazie crm
--- Daj prawo użytkownikowi write do modyfikowania struktury tabel w bazie crm
--- daj prawo użytkownikowi read do przeglądania oraz usuwania danych w tabeli customers w bazie crm
+-- 3.Określ uprawnienia:
 
---4 Odbierz użytkownikowi read prawo do przeglądania danych w tabeli customers
+-- A. Nadaj wszystkie prawa dla użytkownika dev dla wszystkich tabel w bazie crm
 
---5 Zmień nazwę użytkownika dev na admin
+GRANT ALL ON crm_1.* TO dev1; 
 
---6 Ustaw hasło użytkownikowi read '1234' (użyj set password)
+-- B. Daj prawo użytkownikowi write do modyfikowania struktury tabel w bazie crm
 
--- 7 Sprawdź uprawnienia:
--- użytkownika admin
--- użytkownika write
--- Utwórz role write_customers oraz read_customers
+GRANT ALTER ON crm_1.* TO write1;
 
---8 Nadaj uprawnienia rolom:
--- write_customers prawa do wstawiania oraz modyfikowania i usuwania wybranych rekordów
--- read_customers z prawem do przeglądania tabeli customers
+-- C. daj prawo użytkownikowi read do przeglądania oraz usuwania danych w tabeli customers w bazie crm
+GRANT SELECT, DELETE ON crm_1.customers TO read1;
 
--- 9 Przypisz role użytkownikom:
+
+-- 4. Odbierz użytkownikowi read prawo do przeglądania danych w tabeli customers
+REVOKE SELECT ON crm_1.customers FROM read1;
+
+
+-- 5. Zmień nazwę użytkownika dev na admin
+RENAME USER dev1 TO admin1; 
+
+
+-- 6. Ustaw hasło użytkownikowi read '1234' (użyj set password)
+SET PASSWORD FOR 'read1'= PASSWORD('1234');
+
+-- 7. Sprawdź uprawnienia:
+
+-- A. użytkownika admin
+SHOW GRANTS FOR admin1;
+-- B. użytkownika write
+SHOW GRANTS FOR write1;
+-- 8. Utwórz role write_customers oraz read_customers
+
+CREATE ROLE write_customers, read_customers;
+
+-- 9. Nadaj uprawnienia rolom:
+
+-- A. write_customers prawa do wstawiania oraz modyfikowania wybranych rekordów
+GRANT insert, update, select ON crm_1.customers TO write_customers;
+-- B. read_customers z prawem do przeglądania tabeli customers
+GRANT SELECT ON crm_1.customers to read_customers;
+
+-- 10. Przypisz role użytkownikom:
+
 -- write_customers dla write
 -- read_customers dla read
 
---10  Sprawdź uprawnienia:
+GRANT write_customers to write1;
+GRANT read_customers to read1;
+
+jarmula smierdzi hehehehehehehehe
+-- 11. Sprawdź uprawnienia:
+
 -- użytkownika write
+show GRANTS for write1;
 -- użytkownika read (czy ma prawo do usuwania danych?)
 
---11  Zaloguj się i sprawdź uprawnienia. Jeśli jest taka potrzeba użyj SET ROLE i/lub SET DEFAULT ROLE
+show GRANTS for read1;
+-- roli write_customers;
+show GRANTS for write_customers;
+-- roli read_customers
+show GRANTS for read_customers; 
+-- 12. Zaloguj się jako read i sprawdź uprawnienia.
 
---12 usuń rolę write_customers
+-- czy użytkownik read ma prawo do przeglądania danych?
+-- jeśli jest taka potrzeba użyj SET ROLE aby "włączyć" rolę
+-- czy użytkownik read ma prawo do usunięcia klienta o id 1
+DELETE FROM customers WHERE id = 1;
 
---13 Usuń użytkownika read
+-- 12. Z poziomu root ustaw jako domyślną rolę write_customers dla użytkownika write  (SET DEFAULT ROLE)
+SET DEFAULT ROLE write_customers
+FOR write1;
+
+-- 13. Zaloguj się jako write i sprawdź, czy możesz zmienić nazwisko klienta o id=2 na Tree 
+
+-- 14. Usuń
+
+-- A. rolę write_customers
+DROP ROLE write_customers;
+-- B. Usuń użytkownika read
+DROP ROLE write_customers;
