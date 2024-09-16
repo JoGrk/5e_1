@@ -121,8 +121,8 @@ SET budzet=budzet*0.9;
 
 -- 19. przenieś pracowników z działu Research  do działu IT  .
 UPDATE pracownicy
-SET dzial=(SELECT dzial FROM dzialy WHERE nazwa='IT')
-WHERE dzial=(SELECT dzial FROM dzialy WHERE nazwa='Research');
+SET dzial=(SELECT kod FROM dzialy WHERE nazwa='IT')
+WHERE dzial=(SELECT kod FROM dzialy WHERE nazwa='Research');
 
 -- 20. Usuń wszystkich pracowników pracujących w dziale   IT.
 DELETE FROM pracownicy
