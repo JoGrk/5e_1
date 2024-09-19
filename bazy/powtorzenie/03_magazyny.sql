@@ -101,9 +101,11 @@ SELECT magazyny.kod, kontenery.kod FROM magazyny
 
 SELECT magazyny.kod 
 FROM magazyny
-WHERE pojemnosc < (SELECT count(kod) 
+WHERE pojemnosc < (
+    SELECT count(*)
     FROM kontenery
-    WHERE magazyn = magazyny.kod);
+    WHERE magazyn = magazyny.kod 
+)
 
 -- np. wyświetl kody tych magazynów (z tabeli Magazyny), których pojemność jest mniejsza niż
 
@@ -122,12 +124,31 @@ WHERE lokalizacja = 'Chicago';
 
 -- 12. Utwórz nowy magazyn w Nowym Yorku z pojemnością 3 kontenerów.   (zrzut)
 
--- 13. Utwórz nowy kontener, z kodem "H5RT",  zawierającym "Papers" z wartością $200 i zlokalizowany w magazynie o kodzie 2.  (zrzut)
+INSERT INTO magazyny(lokalizacja, pojemnosc)
+VALUES ('New York',3);
 
+-- 13. Utwórz nowy kontener, z kodem "H5RT",  zawierającym "Papers" z wartością $200 i zlokalizowany w magazynie o kodzie 2.  (zrzut)
+INSERT INTO kontenery (kod, zawartosc, wartosc, magazyn)
+VALUES ('H5RT','Papers',200,2);
 -- 14. Zmniejsz wartość wszystkich kontenerów o 15%.  (zrzut)
+UPDATE kontenery
+SET wartosc = wartosc * 0.85;
 
 -- 15 Usuń wszystkie kontenery o wartości mniejszej niż $100.  (zrzut)
-
+DELETE FROM kontenery
+WHERE wartosc<100;
 -- 16. Usuń wszystkie kontenery z przeładowanych magazynów.   (zrzut)
+
+DELETE FROM Kontenery
+WHERE magazyn IN (
+    SELECT kod 
+    FROM magazyny
+    WHERE pojemnosc < (
+        SELECT count(*) 
+        FROM kontenery
+        WHERE magazyn = magazyny.kod
+    )
+);
+
 
 -- usuń wszystkie kontenery, których kod jest na liście (IN) kodów przeładowanych magazynów (tę wartość zwraca zapytanie nr. 10)
