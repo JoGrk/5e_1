@@ -1,0 +1,32 @@
+main {
+    display: flex;
+}
+
+#left {
+    width: 40%;
+}
+
+#right {
+    width: 60%;
+}
+
+
+.codeC {
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}
+
+.red{
+    color: red;
+    background-color: rgb(239, 194, 194);
+}
+
+.blue{
+    color: blue;
+    background-color: rgb(190, 190, 248);
+}
+
+.green{
+    color: green;
+    background-color: rgb(190, 250, 190);
+}
