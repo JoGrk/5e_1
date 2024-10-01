@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+}
+
+header{
+    height: 10vh;
+    background-color: wheat;
+}
+main{
+    display: flex;
+}
+nav{
+    width: 40%;
+}
+
+nav div:first-child{
+    height: 26vh;
+    background-color: bisque;
+}
+
+
+nav div:first-child + div{
+    height: 27vh;
+    background-color: blanchedalmond;
+}
+
+nav div:last-child{
+    height: 27vh;
+    background-color: burlywood;
+}
+
+aside{
+    width: 60%;
+}
+
+aside div:first-child{
+    height: 40vh;
+    background-color: tan;
+    overflow: auto;
+}
+
+aside div:last-child{
+    height: 40vh;
+    background-color: peru;
+}
+footer{
+    height: 10vh;
+    background-color: wheat;
+}

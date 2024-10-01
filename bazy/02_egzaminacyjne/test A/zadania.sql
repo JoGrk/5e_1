@@ -1,8 +1,6 @@
 -- − Zapytanie 1: wybierające jedynie pola imie i nazwisko dla wszystkich rekordów w tabeli autorzy, posortowane rosnąco nazwiskami autorów
 
-SELECT imie, nazwisko
-FROM autorzy
-ORDER BY nazwisko ASC;
+'andrzej'@'localhost'
 
 -- − Zapytanie 2: wstawiające do tabeli czytelnicy nowy rekord z danymi: Ewa Kowalska z kodem 145321. Wartość klucza głównego nadawana automatycznie
 

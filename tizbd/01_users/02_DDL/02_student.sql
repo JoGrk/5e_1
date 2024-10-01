@@ -63,7 +63,7 @@ MODIFY nazwa varchar(30) not null unique;
 
 ALTER TABLE gatunek
 MODIFY nazwa varchar(30) not null unique;
--- B. W tabeli zwierze zmień nazwę kolumny id_gatunek na gatunek_id oraz id_kraj na kraj_id
+-- B. W tabeli zwierze zmień nazwę kolumny id_gatunek na gatunek_id oraz id_kraj na kraj_id`
 ALTER TABLE zwierze
 CHANGE id_gatunek gatunek_id INT;
 
