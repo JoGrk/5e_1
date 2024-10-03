@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="styl6.css">
+    <script src="skrypt.js" defer></script>
+</head>
+<body>
+    <main>
+        <div id="left">
+            <h1>Konfigurator stylu</h1>
+            <p>
+                Podaj kolor tła <br>
+                <button id="indigo">Indigo</button>
+                <button id="steelblue">SteelBlue</button>
+                <button id="olive">Olive</button>
+            </p>
+            <p>
+                Podaj kolor czcionki <br>
+                <select id="list-color">
+                    <option value="white">White</option>
+                    <option value="Tan">Tan</option>
+                    <option value="Bisque">Bisque</option>
+                    <option value="Plum">Plum</option>
+                </select>
+            </p>
+            <p>
+                Podaj rozmiar czcionki w procentach, np 200% <br>
+                <input type="text" id="size" value="100%">
+            </p>
+            <p>
+                Czy rysunek ma mieć ramkę? <br>
+                <input type="checkbox" id="frame" checked>
+                <label for="frame">Rysuj ramkę</label>
+            </p>
+            <p>
+                Jaki jest typ punktora listy? <br>
+                <input type="radio" name="type" value="disc" checked>
+                <label for="disc">Dysk</label>
+                <input type="radio" name="type" value="square">
+                <label for="square">Kwadrat</label>
+                <input type="radio" name="type" value="circle">
+                <label for="circle">Okrąg</label>
+            </p>
+
+        </div>
+        <div id="right">
+            <img src="gibraltar.jpg" alt="półwysep Gibraltar">
+            <ul>
+                <li>element 1</li>
+                <li>element 2</li>
+                <li>element 3</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi suscipit recusandae tempora necessitatibus aut, quam vitae veritatis fuga unde iusto nemo laboriosam at distinctio alias iste culpa provident reiciendis consequuntur.</p>
+        </div>
+    </main>
+    <footer>Autor: xxxx, pesel:xxxx</footer>
+</body>
+</html>
