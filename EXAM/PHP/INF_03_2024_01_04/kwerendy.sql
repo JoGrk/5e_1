@@ -1,7 +1,7 @@
 -- – Zapytanie 1: wybierające jedynie niepowtarzające się wartości z pola wpis dla zadań z pierwszych 7 dni lipca roku 2020 (od 1 do 7 lipca) oraz takich, gdzie pole wpis nie jest puste
 SELECT DISTINCT wpis
 FROM zadania
-WHERE dataZadania BETWEEN '2020-07-01' AND '2020-07-07' AND wpis IS NOT NULL;
+WHERE dataZadania BETWEEN '2020-07-01' AND '2020-07-07' AND wpis IS NOT NULL AND wpis != '';
 -- – Zapytanie 2: wybierające jedynie pola dataZadania i wpis dla zadań z miesiąca lipca
 SELECT dataZadania, wpis 
 FROM zadania 

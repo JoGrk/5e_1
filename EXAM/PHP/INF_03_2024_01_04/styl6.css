@@ -1,0 +1,55 @@
+* {
+    font-family: Verdana;
+}
+
+
+header {
+    display: flex;
+}
+
+#first, #second {
+    background-color: #6f79a8;
+    color: white;
+    height: 140px;
+}
+
+#first {
+    width: 30%;
+}
+
+#second {
+    width: 70%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar {
+    background-color: #9fa8da;
+    width: 160px;
+    height: 85px;
+    margin: 5px;
+    border: 1px solid #6f79a8;
+    overflow: hidden;
+    
+}
+
+.calendar:hover {
+    background-color: #6f79a8;
+}
+
+footer {
+    background-color: #6f79a8;
+    color: white;
+    padding: 5px;
+    text-align: right;
+}
+
+h6 {
+    text-align: center;
+}
+
+
+
