@@ -13,5 +13,10 @@ main{
     background-color: antiquewhite;
     padding: 3rem;
 }
+.error{
+    background-color: rgba(255, 0, 0, 0.5);
+    border: solid 1px red;
+}
+
 
 
