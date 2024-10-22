@@ -1,0 +1,28 @@
+*{
+    font-family: Garamond;
+}
+.container{
+    display: flex;
+}
+.headmain{
+    width: 80%;
+}
+header{
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    height: 80px;
+}
+main{
+    height: 600px;
+}
+aside{
+    background-color: coral;
+    width: 20%;
+    height: 680px;
+}
+footer{
+    background-color: tomato;
+    color: white;
+    text-align: center;
+}
