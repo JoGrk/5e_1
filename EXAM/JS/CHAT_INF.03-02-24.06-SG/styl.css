@@ -1,31 +1,38 @@
 *{
-    margin: 0;
     font-family: Garamond;
 }
-.container{
-    display: flex;
+
+body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 
+                'hd     as'
+                'main   as'
+                'footer footer';
+
 }
-.headmain{
-    width: 80%;
-}
+
 header{
     background-color: tomato;
     color: white;
     text-align: center;
     height: 80px;
+    grid-area: hd;
 }
 main{
     height: 600px;
+    grid-area: main;
 }
 aside{
     background-color: coral;
-    width: 20%;
     height: 680px;
+    grid-area: as;
 }
 footer{
     background-color: tomato;
     color: white;
     text-align: center;
+    grid-area: footer;
 }
 img{
     border-radius: 50%;
