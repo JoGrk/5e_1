@@ -1,0 +1,38 @@
+body{
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    grid-template-areas: 'hd hd hd'
+               'left mid right1'
+               'left mid right2'
+               'ft ft ft';
+}
+header{
+    height: 100px;
+    background-color: blanchedalmond;
+    grid-area: hd;
+}
+.left{
+    background-color: bisque;
+    height: 500px;
+    grid-area: left;
+}
+.mid{
+    background-color: red;
+    height: 500px;
+    grid-area: mid;
+}
+.right1{
+    background-color: azure;
+    height: 250px;
+    grid-area: right1;
+}
+.right2{
+    background-color: lavender;
+    height: 250px;
+    grid-area: right2;
+}
+footer{
+    background-color: blueviolet;
+    height: 100px;
+    grid-area: ft;
+}
