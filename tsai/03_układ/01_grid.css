@@ -1,0 +1,32 @@
+
+body{
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 33vh 34vh 33vh;
+    grid-template-areas: 'hd hd aside'
+                         'nav main aside'
+                         'nav footer footer';
+}
+
+header{
+    grid-area: hd;
+    background-color: aliceblue;
+}
+
+main{
+    grid-area: main;
+    background-color: antiquewhite;
+}
+aside{
+    grid-area: aside;
+    background-color: aqua;
+}
+nav{
+    grid-area: nav;
+    background-color: aquamarine;
+}
+footer{
+    grid-area: footer;
+    background-color: azure;
+}
+
