@@ -1,0 +1,10 @@
+SELECT nazwa FROM wycieczki
+WHERE poczatek in ('Wieliczka','Muszyna');
+
+SELECT nazwa, opis, poczatek, zrodlo 
+FROM wycieczki 
+INNER JOIN zdjecia ON zdjecia.id = wycieczki.zdjecia_id;
+
+SELECT count(id) as iloscWycieczek FROM wycieczki;
+
+ALTER TABLE wycieczki ADD COLUMN ocena int;
