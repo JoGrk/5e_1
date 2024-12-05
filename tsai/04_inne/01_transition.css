@@ -1,0 +1,35 @@
+.div1{
+    width: 10rem;
+    height: 10rem;
+    background-color: blue;
+    transition:width 2s,
+        background-color 2s linear 1s;
+}
+.div1:hover{
+    width: 30rem;
+    background-color: green;
+}
+.img{
+    transition: 2s ease-in;
+}
+.img:hover{
+    opacity: 0;
+    transform: scale(1.2,1.2);
+}
+.div2 h3{
+    padding: 2rem;
+    opacity: 0;
+    transition:opacity 2s 1s;
+}
+.div2{
+    width: 200px;
+    height: 10rem;
+    background-image: url('1056-200x200.jpg');
+    transition: 1s;
+}
+.div2:hover{
+    opacity: 0.3;
+}
+.div2:hover h3{
+    opacity: 1;
+}
