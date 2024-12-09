@@ -1,0 +1,17 @@
+1.
+SELECT nazwa,rzeka,stanalarmowy 
+FROM wodowskazy
+2.
+SELECT nazwa,rzeka,stanOstrzegawczy,stanAlarmowy,stanWody 
+FROM wodowskazy 
+INNER JOIN pomiary ON wodowskazy.id = pomiary.wodowskazy_id
+WHERE dataPomiaru = '2022-05-05'
+3.
+SELECT nazwa,rzeka,stanOstrzegawczy,stanAlarmowy,stanWody
+FROM wodowskazy 
+INNER JOIN pomiary ON wodowskazy.id = pomiary.wodowskazy_id
+WHERE dataPomiaru = '2022-05-05' AND stanWody > stanOstrzegawczy;
+4.
+SELECT dataPomiaru,AVG(stanWody) 
+FROM Pomiary 
+GROUP BY dataPomiaru;
